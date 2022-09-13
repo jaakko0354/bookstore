@@ -1,14 +1,13 @@
 package swd20.bookstore.web;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@ResponseBody
 public class BookstoreController {
-	@GetMapping("/index")
+	
+	@RequestMapping("/index")
 	public String index() {
-		return "Hello";
+		return "hello";
 	}
 }
