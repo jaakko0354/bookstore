@@ -22,7 +22,7 @@ public class BookstoreApplication {
 	public CommandLineRunner bookDemo(BookRepository repository) {
 		return (args) -> {
 			log.info("Saving a test book");
-			repository.save(new Book("Makkarat", "Jakepake", 2001, "0110", 20.00));
+			repository.save(new Book("Makkaranpaistokirja", "Jakeman ", 2001, "01-10-20", 20.00));
 			
 			
 			log.info("Get all books");
