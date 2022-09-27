@@ -3,6 +3,8 @@ package swd20.bookstore.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.GenerationType;
 
 @Entity
@@ -16,13 +18,19 @@ public class Book {
 	public String isbn;
 	public Double price;
 	
-	public Book(String title, String author, Integer year, String isbn, Double price) {
+	
+	@ManyToOne
+	@JoinColumn(name="categoryid")
+	public Category category;
+	
+	public Book(String title, String author, Integer year, String isbn, Double price, Category category) {
 		super();
 		this.title = title;
 		this.author = author;
 		this.year = year;
 		this.isbn = isbn;
 		this.price = price;
+		this.category = category;
 	}
 
 	public Book() {
@@ -68,6 +76,15 @@ public class Book {
 
 	public Double getPrice() {
 		return price;
+	}
+	
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public void setPrice(Double price) {
