@@ -31,7 +31,10 @@ public class BookstoreApplication {
 			repository.save(new Book("Lentävä Kalakukko", "Jakeman ", 2001, "01-10-20", 20.00, crepository.findByName("Fantasia").get(0)));
 			repository.save(new Book("Kokkauskirja", "Make Makettaja", 2009, "42-12-33", 25.00, crepository.findByName("Ruoka").get(0)));
 			
-			
+			log.info("Get all categories");
+			for (Category category : crepository.findAll()) {
+				log.info(category.toString());
+			}
 			log.info("Get all books");
 			for (Book book : repository.findAll()) {
 				log.info(book.toString());

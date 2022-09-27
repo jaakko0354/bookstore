@@ -29,7 +29,7 @@
 			<div style="clear: both; display: block; height: 10px;"></div>
 			
 			<label for="CList">Category</label>
-			<select id="Clist" th:firld="*{Category}" class="form-control">
+			<select id="Clist" th:field="*{Category}">
 				<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}"></option>
 			</select>
 			<div style="clear: both; display: block; height: 10px;"></div>
