@@ -5,6 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.GenerationType;
 
 @Entity
@@ -20,6 +23,7 @@ public class Book {
 	
 	
 	@ManyToOne
+	@JsonIgnoreProperties("books")
 	@JoinColumn(name="categoryid")
 	public Category category;
 	
@@ -94,7 +98,7 @@ public class Book {
 	@Override
 	public String toString() {
 		return "Book [title=" + title + ", author=" + author + ", year=" + year + ", isbn=" + isbn + ", price=" + price
-				+ "]";
+				+ ", "+  category.getName() +"]";
 	}
 	
 	
