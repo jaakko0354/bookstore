@@ -72,4 +72,8 @@ public class BookstoreController {
     	model.addAttribute("categories", crepository.findAll());
     	return "editbook";
     }
+    @RequestMapping(value="/login")
+    public String login() {	
+        return "login";
+    }
 }
