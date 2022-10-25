@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import swd20.bookstore.domain.Category;
 import swd20.bookstore.domain.CategoryRepository;
-@RestController
+
 @Controller
 public class CategoryController {
 	@Autowired

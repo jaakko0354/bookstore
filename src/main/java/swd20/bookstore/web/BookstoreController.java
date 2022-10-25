@@ -19,7 +19,7 @@ import swd20.bookstore.domain.BookRepository;
 import swd20.bookstore.domain.CategoryRepository;
 
 
-@RestController
+
 @Controller
 public class BookstoreController {
 	@Autowired
