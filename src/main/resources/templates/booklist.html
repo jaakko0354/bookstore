@@ -1,20 +1,22 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 	<title>BookListing</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" /> 
 </head>
 <body>
-	<h1>Books available</h1>
+<div>
 	<div>
 		<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+		<div style="float: right; margin-right: 20px;">
+			<form  th:action="@{/logout}" method="post">
+				<input class="btn btn-primary" type="submit" value="Sign out">
+			</form>
+		</div>
 	</div>
-	<div>
-		<form th:action="@{/logout}" method="post">
-			<input type="submit" value="Sign out">
-		</form>
-	</div>
+	<h2>Books available</h2>
+	<p></p>
 	<table class="table table-striped">
 		<tr>
 			<th>Title</th>
@@ -23,8 +25,8 @@
 			<th>Year</th>
 			<th>Price</th>
 			<th>Category</th>
-			<th></th>
-			<th></th>
+			<th sec:authorize="hasAuthority('ADMIN')"> </th>
+			<th sec:authorize="hasAuthority('ADMIN')"> </th>
 		</tr>
 		<tr th:each = "book : ${books}">
 			<td th:text="${book.title}"></td>
@@ -38,5 +40,8 @@
 		</tr>
 	</table>
 	<a href="/add" class="btn btn-success">Add Book</a>
+	
+	
+</div>
 </body>
 </html>
