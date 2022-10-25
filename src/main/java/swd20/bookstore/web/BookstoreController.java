@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import swd20.bookstore.domain.Book;
 import swd20.bookstore.domain.BookRepository;
 import swd20.bookstore.domain.CategoryRepository;
 
 
-
+@RestController
 @Controller
 public class BookstoreController {
 	@Autowired
